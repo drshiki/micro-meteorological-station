@@ -1,3 +1,4 @@
 import BMP180_driver;
-BMP180_driver.read_temp();
-
+data = BMP180_driver.bmp180_read();
+print data[0];
+print data[1];
