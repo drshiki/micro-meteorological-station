@@ -79,6 +79,17 @@ def write_byte(cmd,val):
 	bus.write_byte_data(address,cmd,val)
 
 def read_calibration():
+	global data_AC1;
+	global data_AC2;
+	global data_AC3;
+	global data_AC4;
+	global data_AC5;
+	global data_AC6;
+	global data_B1;
+	global data_B2;
+	global data_MB;
+	global data_MC;
+	global data_MD;
 	data_AC1 = read_s16(addr_AC1)   # INT16
 	data_AC2 = read_s16(addr_AC2)   # INT16
 	data_AC3 = read_s16(addr_AC3)   # INT16
@@ -130,7 +141,7 @@ def read_temperature():
 def read_pressure():
 
 	UT = read_raw_temp()
-    UP = read_raw_pressure()
+	UP = read_raw_pressure()
 	X1 = ((UT - data_AC6) * data_AC5) >> 15
 	X2 = (data_MC << 11) / (X1 + data_MD)
 	B5 = X1 + X2
@@ -173,3 +184,5 @@ def read_sealevel_pressure(altitude_m=0.0):
 	p0 = pressure / pow(1.0 - altitude_m/44330.0, 5.255)
 
 	return p0
+
+
