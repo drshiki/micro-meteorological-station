@@ -1,11 +1,11 @@
 # Author: touchEngine
 #
 # This file is part of micro-meteorological-station project.
-# BMP180_driver.py - the core code to read temperature and pressure from BMP180
+# BMP180_driver.py - the core code to read temperature and pressure from BMP180.
 #
-# All softwares of this project can be modified, contributed, redistributed       
-# freely (without any limitation or payment), including all documents in this 
-# project. And this notice also is unnecessary to be included in your copy.      
+# All softwares of this project can be modified, contributed, redistributed
+# freely (without any limitation or payment), including all documents in this
+# project. And this notice also is unnecessary to be included in your copy.
 
 import time
 import smbus
@@ -66,7 +66,9 @@ def bmp180_read():
 	read_calibration()
 	temp = read_temperature()
 	press = read_pressure()
-	return [temp, press]
+	alti = read_altitude()
+	s_press = read_sealevel_pressure()
+	return [temp, press, alti, s_press]
 	
 def read_byte(cmd):
 	return bus.read_byte_data(address, cmd)
@@ -182,5 +184,5 @@ def read_altitude(sealevel_pa=101325.0):
 
 def read_sealevel_pressure(altitude_m=0.0):
 	pressure = float(read_pressure())
-	p0 = pressure / pow(1.0 - altitude_m/44330.0, 5.255)
-	return p0
+	s_press = pressure / pow(1.0 - altitude_m/44330.0, 5.255)
+	return s_press
