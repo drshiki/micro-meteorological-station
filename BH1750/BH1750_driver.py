@@ -21,4 +21,4 @@ def bh1750_read():
 	illu = round((data[1] + (256 * data[0])) / 1.2,2)
 	if debug:
 		print "illuminance = %.2f lx" %illu
-	return illu
+	return {'illuminance' : illu}

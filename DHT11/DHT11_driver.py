@@ -23,7 +23,7 @@ def dht11_read():
 	data = []
 	i = 0
 	GPIO.setmode(GPIO.BOARD)
-	time.sleep(1)  # DHT11 needs 1 second to reach stable state after power-on
+	time.sleep(2)  # DHT11 needs 1 second to reach stable state after power-on
 	GPIO.setup(use_port, GPIO.OUT)
 
 	# the host sends a low level the begin signal to DHT11 lasting for 0.018 seconds at least
@@ -69,9 +69,9 @@ def dht11_read():
 			print "the check = %d" %check
 		GPIO.cleanup()
 		if humi + temp == check:
-			return [humi, temp]
+			return {'humidity' : humi, 'temperature' : temp}
 		else:
-			return False
+			return None
 	else:
 		if debug:
 			print "it is wrong, can not recieve the ack from DHT11, please check the use_port and hardware then try again"
