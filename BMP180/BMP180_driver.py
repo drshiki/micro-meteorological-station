@@ -68,7 +68,7 @@ def bmp180_read():
 	press = read_pressure()
 	alti = read_altitude()
 
-	return {'temperature': temp,'pressure' : press, 'altitude': press]
+	return {'temperature': temp,'pressure' : press, 'altitude': alti}
 	
 def read_byte(cmd):
 	return bus.read_byte_data(address, cmd)
@@ -177,9 +177,9 @@ def read_pressure():
 	p = p + ((X1 + X2 + 3791) >> 4)
 	return p / 100.0
 
-def read_altitude(sealevel_pa=101325.0):
+def read_altitude(sealevel_press=1013.25):
 	pressure = float(read_pressure())
-	altitude = 44330.0 * (1.0 - pow(pressure / sealevel_pa, (1.0/5.255)))
+	altitude = 44330.0 * (1.0 - pow(pressure / sealevel_press, (1.0/5.255)))
 	return altitude
 
 def read_sealevel_pressure():

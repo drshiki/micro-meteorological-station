@@ -15,4 +15,4 @@ data = BMP180_driver.bmp180_read()
 print 'temperature = %.1f * C' %data[0]
 print 'pressure = %.1f Pa' %data[1]
 print 'altitude = %.2f m' %data[2]
-print 'sea level pressure  = %.1f Pa' data[3]
+print 'sea level pressure  = %.1f Pa' %data[3]
