@@ -7,8 +7,10 @@
 # freely (without any limitation or payment), including all documents in this
 # project. And this notice also is unnecessary to be included in your copy.
 
+import sys
+sys.path.append('..')
 import MQ135_driver
 
 data = MQ135_driver.mq135_read()
-print "API = %d *C"%data['API']
+print "API = %d"%data['API']
 

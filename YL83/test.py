@@ -7,8 +7,10 @@
 # freely (without any limitation or payment), including all documents in this
 # project. And this notice also is unnecessary to be included in your copy.
 
+import sys
+sys.path.append('..')
 import YL83_driver
 
 data = YL83_driver.yl83_read()
-print "rainfall = %d *C"%data['rainfall']
+print "rainfall = %d"%data['rainfall']
 
