@@ -10,8 +10,8 @@
 import DHT11_driver;
 data = DHT11_driver.dht11_read();
 if data:
-	print "temp = %d *C"%data[1];
-	print "humi = %d%% RH"%data[0];
+	print "temp = %d *C"%data['temperature'];
+	print "humi = %d%% RH"%data['humidity'];
 else:
 	print "data is wrong, try again";
 

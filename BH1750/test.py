@@ -9,4 +9,4 @@
 
 import BH1750_driver
 data = BH1750_driver.bh1750_read()
-print "illuminance = %.2f lx" %data;
+print "illuminance = %.2f lx" %data['illuminance'];
