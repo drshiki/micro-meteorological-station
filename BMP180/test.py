@@ -11,7 +11,6 @@
 import BMP180_driver
 
 data = BMP180_driver.bmp180_read()
-
 print 'temperature = %.1f * C' %data['temperature']
 print 'pressure = %.1f Pa' %data['pressure']
 print 'altitude = %.2f m' %data['altitude']

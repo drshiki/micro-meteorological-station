@@ -8,5 +8,6 @@
 # project. And this notice also is unnecessary to be included in your copy.
 
 import BH1750_driver
+
 data = BH1750_driver.bh1750_read()
-print "illuminance = %.2f lx" %data['illuminance'];
+print "illuminance = %.2f lx" %data['illuminance']

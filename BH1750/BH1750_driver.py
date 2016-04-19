@@ -10,15 +10,10 @@
 import time
 import smbus
 
-# BH1750 i2c address
-addr = 0x23
-# debug flag
-debug = False
+addr = 0x23 # BH1750 i2c address
 
 def bh1750_read():
 	bus = smbus.SMBus(1)
 	data = bus.read_i2c_block_data(addr,0x11)
 	illu = round((data[1] + (256 * data[0])) / 1.2,2)
-	if debug:
-		print "illuminance = %.2f lx" %illu
 	return {'illuminance' : illu}
