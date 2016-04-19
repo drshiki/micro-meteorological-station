@@ -10,6 +10,6 @@
 import DHT11_driver
 
 data = DHT11_driver.dht11_read()
-print "temp = %d *C"%data['temperature']
-print "humi = %d%% RH"%data['humidity']
+print "temperature = %d *C"%data['temperature']
+print "humidity = %d%% RH"%data['humidity']
 

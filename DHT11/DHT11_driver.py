@@ -19,7 +19,7 @@ bit_count = 40
 def dht11_read():
 	rs = None
 	try_counter = 0;
-	while rs is None || try_counter > 100:	
+	while rs is None or  try_counter > 100:	
 		data = []
 		i = 0
 		GPIO.setmode(GPIO.BOARD)
